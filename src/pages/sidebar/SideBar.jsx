@@ -55,6 +55,7 @@ const SideBar = () => {
     { icon: Icon.Building, label: "Hospitals", path: "/hospitals" },
     { icon: Icon.Users, label: "Patients", path: "/patients" },
     { icon: Icon.FileText, label: "Lab Reports", path: "/lab-reports" },
+    { icon: Icon.Users, label: "Doctor Profile", path: "/doctor-profile" },
   ];
 
   const isActive = (path) => location && location.pathname === path;

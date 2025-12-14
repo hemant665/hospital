@@ -111,6 +111,16 @@ const getBadgeStyle = (value) => {
 const DynamicMedicalReportTable = ({data}) => {
   let lastSection = "";
 
+  const {
+    hospital,
+    patient,
+    test,
+    notes,
+    reference_notes,
+    signatures,
+    timestamps,
+  } = data;
+
   
   return (
     <div className="w-full h-full" style={pageStyle}>

@@ -6,6 +6,7 @@ import Dashboard from './pages/dashboard/Dashboard';
 import LabReports from './pages/LabReports/LabReports';
 import Patients from './pages/Patients/Patients';
 import Hospitals from './pages/Hospitals/Hospitals';
+import Doctor from './pages/doctor/Doctor';
 
 
 
@@ -31,6 +32,7 @@ function App() {
                 <Route path="/hospitals" element={<Hospitals />} />
                 <Route path="/patients" element={<Patients />} />
                 <Route path="/lab-reports" element={<LabReports />} />
+                <Route path="/doctor-profile" element={<Doctor />} />
               </Routes>
             </div>
           </main>
