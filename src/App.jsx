@@ -1,12 +1,13 @@
 import React, { useState } from 'react'
 import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
-import Sidebar from './pages/sidebar/SideBar';
+import SideBar from './pages/sidebar/SideBar';
 import Dashboard from './pages/dashboard/Dashboard';
 
 import LabReports from './pages/LabReports/LabReports';
 import Patients from './pages/Patients/Patients';
 import Hospitals from './pages/Hospitals/Hospitals';
 import Doctor from './pages/doctor/Doctor';
+import UserScanner from './pages/userScanner/UserScanner';
 
 
 
@@ -18,7 +19,7 @@ function App() {
     <Router>
       <div className="w-full grid grid-cols-[auto_1fr] h-screen bg-gray-50">
         {/* Sidebar */}
-        <Sidebar isOpen={sidebarOpen} setIsOpen={setSidebarOpen} />
+        <SideBar  />
 
         {/* Main Content */}
         <div className="w-full flex-1 flex flex-col overflow-hidden">
@@ -30,6 +31,7 @@ function App() {
               <Routes>
                 <Route path="/" element={<Dashboard />} />
                 <Route path="/hospitals" element={<Hospitals />} />
+                <Route path="/user-scanner" element={<UserScanner />} />
                 <Route path="/patients" element={<Patients />} />
                 <Route path="/lab-reports" element={<LabReports />} />
                 <Route path="/doctor-profile" element={<Doctor />} />

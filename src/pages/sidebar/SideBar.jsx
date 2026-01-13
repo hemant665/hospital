@@ -1,5 +1,5 @@
-// SideBar.js
-import React, { useState } from "react";
+
+import { useState } from "react";
 import { Link, useLocation } from "react-router-dom";
 
 
@@ -39,11 +39,35 @@ const Icon = {
       <path d="M8 13h8M8 17h5" stroke="currentColor" strokeWidth="1.4" strokeLinecap="round" strokeLinejoin="round"/>
     </svg>
   ),
-  ChevronLeft: ({ size = 16, rotated = false }) => (
-    <svg width={size} height={size} viewBox="0 0 24 24" style={{ transform: rotated ? "rotate(180deg)" : undefined }}>
-      <path d="M15 18l-6-6 6-6" stroke="currentColor" strokeWidth="1.6" strokeLinecap="round" strokeLinejoin="round" fill="none"/>
-    </svg>
-  )
+  QrScannerIcon:({
+  size = 16,
+}) => (
+  <svg
+    width={size}
+    height={size}
+    viewBox="0 0 24 24"
+    fill="none"
+  >
+    {/* Scanner frame */}
+    <path
+      d="M4 8V6a2 2 0 0 1 2-2h2
+         M20 8V6a2 2 0 0 0-2-2h-2
+         M4 16v2a2 2 0 0 0 2 2h2
+         M20 16v2a2 2 0 0 1-2 2h-2"
+      stroke="currentColor"
+      strokeWidth="1.6"
+      strokeLinecap="round"
+      strokeLinejoin="round"
+    />
+
+    {/* QR blocks */}
+    <rect x="7" y="7" width="3" height="3" rx="0.5" fill="currentColor" />
+    <rect x="14" y="7" width="3" height="3" rx="0.5" fill="currentColor" />
+    <rect x="7" y="14" width="3" height="3" rx="0.5" fill="currentColor" />
+    <rect x="13" y="13" width="2" height="2" rx="0.4" fill="currentColor" />
+  </svg>
+)
+
 };
 
 const SideBar = () => {
@@ -56,6 +80,7 @@ const SideBar = () => {
     { icon: Icon.Users, label: "Patients", path: "/patients" },
     { icon: Icon.FileText, label: "Lab Reports", path: "/lab-reports" },
     { icon: Icon.Users, label: "Doctor Profile", path: "/doctor-profile" },
+    { icon: Icon.QrScannerIcon, label: "User", path: "/user-scanner" },
   ];
 
   const isActive = (path) => location && location.pathname === path;
@@ -227,7 +252,7 @@ const SideBar = () => {
             onClick={() => setIsOpen(!isOpen)}
             style={styles.collapseBtn}
           >
-            <Icon.ChevronLeft rotated={!isOpen} />
+            {/* <Icon.ChevronLeft rotated={!isOpen} /> */}
           </button>
         </div>
 
@@ -307,4 +332,4 @@ const SideBar = () => {
   );
 };
 
-export default SideBar;
+export default SideBar

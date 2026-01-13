@@ -1,13 +1,6 @@
 // StructuredReportFinal.js
 import React from "react";
 
-/**
- Props:
-  - data: the object you posted (hospital, patient, test, timestamps, reference_notes, notes, signatures)
-  - title?: optional title string
- Usage:
-  <StructuredReportFinal data={data} title="Medical Examination Report" />
-*/
 
 const LABELS = {
   reg_no: "Reg No",

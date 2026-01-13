@@ -46,8 +46,8 @@ const LabReports = () => {
       const res = await axios.get(`https://digiihospital.guildarts.online/users/get_pdf/${number}`);
 
       if (res.status == 200) {
-          console.log(res.data);
-          setServerResponse(res.data);
+          console.log(res.data?.data || res.data);
+          setServerResponse(res.data?.data || res.data);
           
       }
 
@@ -287,7 +287,7 @@ function formatMedicalText(raw) {
 
           {serverResponse && (
             <div className="absolute h-full w-full top-0 left-0 flex items-center bg-black/70 justify-center">
-              <div className="relative w-4/5 h-4/5 flex flex-col gap-4 bg-white  rounded overflow-y-auto">
+              <div className="relative w-max h-4/5 flex flex-col gap-4 bg-white  rounded ">
                 <button
                   type="button"
                   onClick={() => {
@@ -297,12 +297,15 @@ function formatMedicalText(raw) {
                       fileInputRef.current.value = "";
                     }
                   }}
-                  className="absolute right-2 top-2 border border-gray-300 px-2 py-1 rounded-md text-black"
+                  className="absolute right-5 top-5 border border-gray-300 px-2 py-1 rounded-md text-black"
                 >
                   Close
                 </button>
 
-                <DynamicMedicalReportTable data={serverResponse} onClose={setfirst}/>
+                <div className="h-full overflow-y-auto scrollBar">
+                  <DynamicMedicalReportTable data={serverResponse} onClose={setfirst}/>
+                </div>
+
                 {/* {Object.values(serverResponse).map((v, i) => (
                   <pre
                     key={i}
